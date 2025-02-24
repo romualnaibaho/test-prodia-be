@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 
 class AuthController extends Controller
 {
@@ -84,10 +83,10 @@ class AuthController extends Controller
 
         }
         catch(Exception $e) {
-            if (strpos($e->getMessage(), "SQLSTATE")) {
+            if (strpos($e->getMessage(), "SQLSTATE") !== false) {
                 return response()->json([
                     'data' => null,
-                    'message' => "Terjadi Keslahan, silahkan coba kembali"
+                    'message' => "Terjadi Kesalahan, silahkan coba kembali"
                 ], Response::HTTP_BAD_REQUEST);
             }
             return response()->json([
@@ -169,10 +168,10 @@ class AuthController extends Controller
             ], Response::HTTP_OK);
         }
         catch(Exception $e) {
-            if (strpos($e->getMessage(), "SQLSTATE")) {
+            if (strpos($e->getMessage(), "SQLSTATE") !== false) {
                 return response()->json([
                     'data' => null,
-                    'message' => "Terjadi Keslahan, silahkan coba kembali"
+                    'message' => "Terjadi Kesalahan, silahkan coba kembali"
                 ], Response::HTTP_BAD_REQUEST);
             }
             return response()->json([
@@ -241,10 +240,10 @@ class AuthController extends Controller
             ], Response::HTTP_OK);
         }
         catch(Exception $e) {
-            if (strpos($e->getMessage(), "SQLSTATE")) {
+            if (strpos($e->getMessage(), "SQLSTATE") !== false) {
                 return response()->json([
                     'data' => null,
-                    'message' => "Terjadi Keslahan, silahkan coba kembali"
+                    'message' => "Terjadi Kesalahan, silahkan coba kembali"
                 ], Response::HTTP_BAD_REQUEST);
             }
             return response()->json([
@@ -344,10 +343,10 @@ class AuthController extends Controller
 
         }
         catch(Exception $e) {
-            if (strpos($e->getMessage(), "SQLSTATE")) {
+            if (strpos($e->getMessage(), "SQLSTATE") !== false) {
                 return response()->json([
                     'data' => null,
-                    'message' => "Terjadi Keslahan, silahkan coba kembali"
+                    'message' => "Terjadi Kesalahan, silahkan coba kembali"
                 ], Response::HTTP_BAD_REQUEST);
             }
             return response()->json([
